@@ -1,0 +1,130 @@
+<div id="body">
+    <app-nemu-bar></app-nemu-bar>
+
+    <div class="route">
+    <mat-horizontal-stepper linear  #stepper>
+   
+    <mat-step  [stepControl]="f" [completed]="nextS1">
+        <ng-template matStepLabel><b>Etape 1</b></ng-template>
+        <form #f="ngForm"  class="compteForm" novalidate>
+           
+            <div class="content">
+               <p class=head>Information personnelle</p> 
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                      <input class="inputStyle" type="text" [(ngModel)]="client.nom" name="nom" #name='ngModel' placeholder="Nom" required><br>
+                      <small class="text-danger " [class.d-none]="name.valid || name.untouched">Ce champs est obligatoire</small>
+                         </div>
+                         <div class="col-lg-6 col-12 boxStyle">
+                            <input id="homme" type="radio" value="homme" name="sexe" [(ngModel)]="client.sexe" #type='ngModel' required >
+                            <label for="homme">Homme</label> 
+                            <input id="femme" type="radio" value="femme" name="sexe" [(ngModel)]="client.sexe" #type='ngModel'  required>
+                            <label for="femme">Femme</label>  
+
+                            <small class="text-danger" [class.d-none]="type.valid || type.untouched">Ce champs est obligatoire</small>
+                    </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            
+                               <input class="inputStyle"  type="text"  [(ngModel)]="client.prenom" name="prenom" #pre='ngModel' placeholder="Prenom"  required><br>
+                                <small class="text-danger " [class.d-none]="pre.valid || pre.untouched">Ce champs est obligatoire</small>
+                            
+                         </div>
+                         <div class="col-lg-6 col-12">
+                            <input  class="inputStyle"  type="text"  [(ngModel)]="client.cin" name="cin" #ci='ngModel' placeholder="Cin"  required><br>
+                            <small class="text-danger " [class.d-none]="ci.valid || ci.untouched">Ce champs est obligatoire</small>
+                            </div>
+                       
+                        </div>
+                    <div class="row">
+                    <div class="col-lg-6 col-12 ">
+                        <input class="inputStyle"  type="text" (keypress)="numericOnly($event)"   [(ngModel)]="client.numTel" name="numTel" #num='ngModel' placeholder="Telephone" pattern="^((06)|(07))[0-9]{8}$" required><br>
+                       <small class="text-danger " [class.d-none]="! num.errors?.required || num.untouched">Ce champs est obligatoire</small>
+                       <div *ngIf="num.errors && num.touched">
+                        <small class="text-danger" *ngIf="num.errors.required">Ce champs est obligatoire </small>
+                        <small class="text-danger" *ngIf="num.errors.pattern">le num est de la forme 06|07 ** ** ** **</small>
+                     </div>
+                    
+                    </div> 
+                       
+                         <div class="col-lg-6 col-12 "><!--emailref.errors?.pattern"-->
+                         <input  class="inputStyle"  [(ngModel)]="client.username" name="email" type="email" #em='ngModel' placeholder="Email"  pattern="[a-z0-9._]+@[a-z]+\.[a-z]{2,3}$" required><br>
+                           <!-- <small class="text-danger " [class.d-none]="em.valid || em.untouched">Ce champs est obligatoire</small>-->
+                           <div *ngIf="em.errors && em.touched">
+                            <small class="text-danger" *ngIf="em.errors.required">Ce champs est obligatoire </small>
+                            <small class="text-danger" *ngIf="em.errors.pattern">la forme d'email doit etre de la forme : *****@****.**</small>
+                         </div>
+                         </div>
+                     </div>
+       
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <input class="inputStyle"  type="date"  [(ngModel)]="client.dateNaissance" [ngModel]="startDate | date:'yyyy-MM-dd'" #dateN='ngModel' name="dateNaissance" placeholder="Date de naissance"  required><br>
+                        <small class="text-danger" [class.d-none]="dateN.valid || dateN.untouched">Ce champs est obligatoire</small>
+                     </div>
+                  
+                     
+                   
+                    <button mat-button matStepperNext   [disabled]="!f.valid" style="margin-top: 4%;margin-left: 30%;" class="submit" (click)="onNextStep1()">Next</button>
+                    
+                    
+                </div>
+            </div>
+   
+    </form>
+
+      
+    </mat-step>
+    <mat-step  [stepControl]="f2" [completed]="nextS2">
+        <ng-template matStepLabel><b>Etape 2</b></ng-template>
+        <form #f2="ngForm"  class="compteForm2" novalidate>
+            <br>
+            <p class=head>Type de Compte</p> 
+            <br>
+        <div class="container">
+            <br>
+                 <div class="row  mx-auto justify-content-center align-items-center ">
+                    <input type="radio" value="CC" name="typeCompte" [(ngModel)]="compte.typeCompte" #type='ngModel' required >  Compte Courant &nbsp; &nbsp;&nbsp;
+                    <input type="radio" value="CE" name="typeCompte" [(ngModel)]="compte.typeCompte" #type='ngModel'  required>  Compte Epargne   
+                    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Ce champs est obligatoire</small>
+                 </div>
+                 
+
+                  <div class="row  mx-auto justify-content-center align-items-center flex-column">
+                    <input class="inputStyle"  type="date"  [(ngModel)]="compte.dateCreation" #dateC='ngModel' name="dateCreation" placeholder="Date de creation"  required><br>
+                    <small class="text-danger" [class.d-none]="dateC.valid || dateC.untouched">Ce champs est obligatoire</small>
+                 </div>
+                 <div class="row  mx-auto justify-content-center align-items-center flex-column">
+                    <input class="inputStyle"  type="number"  [(ngModel)]="compte.solde" #sol='ngModel' name="solde" placeholder="Solde initiale"  required><br>
+                    <small class="text-danger" [class.d-none]="sol.valid || sol.untouched">Ce champs est obligatoire</small>
+                 </div>
+                 <br>
+                <div class="row" style="margin-left:30%;">
+                    <button mat-button matStepperPrevious >Back</button>
+                    <button mat-button matStepperNext  [disabled]="!f2.valid"  (click)="onNextStep2()">Confirmer</button>
+                </div>
+                <br>
+         </div>
+        </form>
+      
+        
+        
+    </mat-step>
+    <mat-step [completed]="nextS2">
+        <ng-template matStepLabel><b>Etape 3</b></ng-template>
+        <br>
+        <br>
+       <h1>Bilan client</h1> <br>
+       <br>
+       <div style="margin-left:33%;">
+       <strong >Nom & Prenom :</strong> {{nouveauCompte?.client.prenom}} {{nouveauCompte?.client.nom}}<br><br>
+        <strong>Rib :</strong> {{nouveauCompte?.rib}}<br><br>
+        <strong>Numero de telephone :</strong> {{nouveauCompte?.client.numTel}}<br><br>
+        <strong>username :</strong> {{nouveauCompte?.client.username}}<br>
+    </div>
+    <br>
+    <button  class="submit" (click)="onTerminer()">Terminer</button>
+    </mat-step>
+</mat-horizontal-stepper>

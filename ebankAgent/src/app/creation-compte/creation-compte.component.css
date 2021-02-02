@@ -1,0 +1,110 @@
+
+.content{
+    padding:30px;
+ }
+ .head{
+     text-align: center;
+     font-style: italic;
+     font-weight: bolder;
+ }
+ 
+ 
+ 
+ .inputStyle{
+     background:transparent;
+     border:0;
+     border-bottom: 2px solid #042331;
+     padding: 5px;
+     color:gray;
+     padding: 15px;
+     width: 80%;
+     
+ }
+ 
+ .boxStyle{
+     margin-top: 35px;
+     color:gray;
+ }
+ 
+ button{
+     float: right;
+ }
+ 
+ input:focus,
+ select:focus,
+ textarea:focus,
+ button:focus {
+     outline: none;
+ }
+ 
+ 
+ .btn{
+     background: #042331;
+     border-radius: 15px;
+     margin-left: 240px;
+     color: white;
+     margin-top: 30px;
+     text-align: center;
+     width: 6rem;
+ }
+ 
+ .btn:hover{
+     background: #063146;
+     transform: scale(1.05);
+ }
+ 
+ .compteForm{
+     
+     box-shadow:0px 5px 10px 0px rgba(0,47,104,0.4);
+     width: 70%;
+     margin: 20px auto;
+  
+ }
+ 
+ .compteForm2{
+     box-shadow:0px 5px 10px 0px rgba(0,47,104,0.4);
+     width: 40%;
+     margin: 20px auto;
+     height: 40%;
+     
+ }
+ 
+ button:disabled {
+     cursor: not-allowed;
+     pointer-events: all !important;
+   }
+ 
+   h1{
+       margin-left: 40%;
+     display: inline-block;
+     position: relative;
+     font-family: 'Dancing Script', cursive;
+   }
+   
+   h1::after, h1::before{
+     content: '';
+     position: absolute;
+     width: 50px;
+     height: 3px;
+     background-color:currentColor;
+     top: 20px;
+     transition: all 0.4 ease-in;
+   }
+   
+   h1::before{
+     left:-70px;
+   }
+   
+   h1::after{
+     right:-70px;
+   }
+  
+   strong{
+       
+       font-weight: bolder;
+       font-style: italic;
+       color:#4babc0;
+       font-family: 'Dancing Script', cursive;
+ 
+ 
+   }

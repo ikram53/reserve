@@ -1,0 +1,16 @@
+
+<body>
+ 
+    <div class="form-area">
+      <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+         <p>Email</p>
+         <input type="text" name="username" ngModel=""  id="" placeholder="entrer votre email" required/>
+  
+         <p>Mot de passe</p>
+       
+         <input type="password" name="password" ngModel=""  placeholder="entrer votre mot de passe"required />
+         <button type="submit">Login</button>
+        </form>
+        </div>
+        
+  </body>

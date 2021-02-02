@@ -1,0 +1,82 @@
+
+<div id="body">
+  <app-nemu-bar></app-nemu-bar>
+
+  <main style="margin-top: 8%;margin-left: 22%;">
+    <div  class="content">
+
+
+  <!--   -->
+  <div class="wrapper">
+    <div class="container">
+      <h1>Upload a file</h1>
+
+      <div class="upload-container">
+
+        <div class="border-container">
+          
+          <div class="icons">
+            <!--<i class="fa fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+            <i class="fa fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+            <i class="fa fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>-->
+            
+            
+            <img src="./assets/images/cloud-computing.png">
+           
+          </div>
+          <!--<label id="getFileLabel" for="getFile" style="text-decoration: underline;color:brown;font-style: italic;cursor: pointer;"  [(ngModel)]="selectedFiles">Choose file from your computer</label>-->
+          <label for="file_input">{{nameFile}}</label>
+          <input type="file"  (change)="selectFile($event)" id="file_input">
+        
+         
+        </div>
+ 
+      </div>
+      <input type="submit" [disabled]="!selectedFiles" (click)="upload()"  class="mt-4 w-100 btn btn-outline-dark" value="upload"/>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="currentFile" class="progress">
+    <div
+      class="progress-bar progress-bar-info progress-bar-striped"
+      role="progressbar"
+      attr.aria-valuenow="{{ progress }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: progress + '%' }"
+    >
+      {{ progress }}%
+    </div>
+  </div>
+  
+  <!--<label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)"/>
+  </label>
+<br>
+  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+    Upload   
+  </button>-->
+  <input type="search" (keyup)="keyBoardEvent($event)" placeholder="search by name.... " [(ngModel)]="motCle">
+
+
+  <div class="alert alert-light" role="alert">{{ message }}</div>
+  <div class="card">
+    <div class="card-header">List of Files</div>
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let file of fileInfos"
+    >
+      <li class="list-group-item">
+        <a  (click)="downloadFile(file)" style="text-decoration: underline;color: blue;cursor: pointer;">{{ file }}</a>
+        <span class="float-right"><i class="fa fa-times-circle" style="color: brown; cursor: pointer;" (click)="deleteFile(file)"></i></span>
+        
+      </li>
+    </ul>
+  </div>
+
+  
+  </div>
+  </main>
+  </div>
+  
+  

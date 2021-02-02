@@ -1,0 +1,192 @@
+
+
+.card-1, .card-2, .card-3 {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 2px #D7D7D7;
+}
+
+
+
+
+/*  media queries*/
+
+@media only screen and (min-width: 320px) {
+    .bar-chart-container {
+        margin: 5% 5% 5% 5%;
+        width: 90%;
+        height: 70%;
+    }
+    .dashboard-container {
+        display: grid;
+        grid-template: 17% 17% 17% 17% 17% 17% / repeat(1, 1fr);
+        grid-gap: 20px;
+        padding: 5% 0 25% 0;
+    }
+    .doughnut-chart-container, .pie-chart-container {
+        margin: 5% auto 5% auto;
+        width: 100%;
+    }
+    .card-1, .card-2, .card-3 {
+        border-radius: 10px;
+    }
+    /*doughnut chart*/
+    .card-1 {
+        grid-row: 1 / 3;
+    }
+    /*pie chart*/
+    .card-2 {
+        grid-row: 3 / 5;
+    }
+    /*bar chart*/
+    .card-3 {
+        grid-row: 5 / 7;
+    }
+}
+@media only screen and (min-width: 400px) {
+    .dashboard-container {
+        margin: 0 5% 0 5%;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .dashboard-container {
+        grid-template: 19% 19% 19% 19% 12% 12% / repeat(2, 1fr);
+        margin: 10% 10% 0 10%;
+    }
+    /*doughnut chart*/
+    .card-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+    /*pie chart*/
+    .card-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
+    /*bar chart*/
+    .card-3 {
+        grid-column: 1 / 3;
+        grid-row: 3 / 7;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .dashboard-container {
+        grid-template: repeat(6, 15%) / repeat(11, 1fr);
+        grid-gap: 10px;
+        margin: 0;
+        padding: 0;
+        width: 80%;
+        height: 85%;
+    }
+    .doughnut-chart-container, .pie-chart-container {
+        margin: 3% 0 5% 0;
+        width: 100%;
+    }
+    /*doughnut chart*/
+    .card-1 {
+        grid-column: 1 / 5;
+        grid-row: 1 / 4;
+    }
+    /*pie chart*/
+    .card-2 {
+        grid-column: 1 / 5;
+        grid-row: 4 / 7;
+    }
+    /*bar chart*/
+    .card-3 {
+        grid-column: 5 / -1;
+        grid-row: 1 / 7;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 80vw;
+        margin: 5vh 10vw 0 10vw;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .container {
+        max-width: 1500px;
+    }
+}
+@media screen and (min-width: 1500px){
+    .dashboard-container{
+        max-width: 1200px;
+    }
+}
+
+
+/***********************/
+.circle-menu li {
+    list-style: none;
+    display: inline;
+  }
+  
+  .circle-menu {
+      position: relative;
+      width: 20em;
+      height: 18em;
+      border: dashed 5px black;
+      border-radius: 80%;
+      margin: 6em auto 7em;
+    background: url('src/assets/images/1.PNG') no-repeat;
+    background-position: center center;
+    background-size: 10em;
+    
+  }
+  .circle-menu a {
+    display: block;
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    width: 5em; height: 5em;
+    padding-top: 2.9em;
+    line-height:1.2em;
+    margin: -3.5em;
+    -moz-border-radius: 4em;
+    -webkit-border-radius: 4em;
+    border-radius: 4em;
+    text-align: center;
+    text-decoration: none;
+    color: transparent;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .circle-menu a:hover {
+    color: #fff;
+  }
+  
+  .circle-menu a.push {background:white; border: solid 2px brown;background-image: url(https://www.kumulos.com/wp-content/themes/kumulos-2017/assets/icons/push-grey_nocircle.svg);}
+  .circle-menu a.client {background:white; border: solid 2px brown;background-image: url(/assets/images/user.png);background-repeat:no-repeat; background-position: center;}
+  .circle-menu a.statistic {background:white; border: solid 2px brown;background-image: url(https://www.kumulos.com/wp-content/themes/kumulos-2017/assets/icons/analytics-grey_nocircle.svg);}
+  /*.circle-menu a.portal {background:white; border: solid 2px brown;background-image: url(/assets/images/notification.png); background-repeat:no-repeat; background-position: center;}*/
+  .circle-menu a.demande {background:white; border: solid 2px brown;background-image: url(https://www.kumulos.com/wp-content/themes/kumulos-2017/assets/icons/console-grey_nocircle.svg);}
+  .circle-menu a.rendez-vs {background:white; border: solid 2px brown;background-image: url(/assets/images/interview.png);background-repeat:no-repeat; background-position: center;}
+  .circle-menu a.compte {background:white; border: solid 2px brown;background-image: url(/assets/images/money.png); background-repeat:no-repeat; background-position: center;}
+  
+  .circle-menu a.push:hover {background:brown}
+  .circle-menu a.client:hover {background:brown}
+  .circle-menu a.statistic:hover {background:brown}
+  /*.circle-menu a.portal:hover {background:brown}*/
+  .circle-menu a.demande:hover {background:brown}
+  .circle-menu a.rendez-vs:hover {background:brown}
+  .circle-menu a.compte:hover {background:brown}
+  
+  
+   /* 360/7= 51 roughly so for 7 elements rotate the element every 51deg. 12em translate is half the container */
+  .circle-menu .push { transform: rotate(90deg) translate(9em) rotate(-90deg); -webkit-transform: rotate(45deg) translate(9em) rotate(-45deg); -ms-transform: rotate(45deg) translate(9em) rotate(-45deg);}
+  .circle-menu .client{ transform: rotate(110deg) translate(8.8em) rotate(-110deg); -webkit-transform: rotate(110deg) translate(8em) rotate(-110deg); -ms-transform: rotate(110deg) translate(8em) rotate(-110deg);}
+  .circle-menu .statistic { transform: rotate(170deg) translate(9em) rotate(-170deg); -webkit-transform: rotate(170deg) translate(9em) rotate(-170deg); -ms-transform: rotate(170deg) translate(9em) rotate(-170deg);}
+  .circle-menu .portal { transform: rotate(204deg) translate(9em) rotate(-204deg); -webkit-transform: rotate(204deg) translate(9em) rotate(-204deg); -ms-transform:rotate(204deg) translate(9em) rotate(-204deg);}
+  .circle-menu .demande { transform: rotate(245deg) translate(9.6em) rotate(-245deg); -webkit-transform: rotate(245deg) translate(9.6em) rotate(-245deg); -ms-transform: rotate(245deg) translate(9.6em) rotate(-245deg);}
+  .circle-menu .rendez-vs { transform: rotate(306deg) translate(10.5em) rotate(-306deg); -webkit-transform: rotate(306deg) translate(10.5em) rotate(-306deg); -ms-transform: rotate(306deg) translate(10.5em) rotate(-306deg);}
+  .circle-menu .compte { transform: rotate(352deg) translate(11em) rotate(-352deg); -webkit-transform: rotate(352deg) translate(11em) rotate(-352deg); -ms-transform: rotate(352deg) translate(11em) rotate(-352deg);}
+  /********************/
+
+ /******************************/
+
+
+  

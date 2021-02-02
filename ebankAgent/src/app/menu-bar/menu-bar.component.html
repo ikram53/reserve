@@ -1,0 +1,95 @@
+<header role="banner">
+  <h1><a routerLink="/dashboard" style="color: brown;">AFOIH BANK</a></h1>
+    
+  <ul class="utilities mainmenu" >
+    <br>
+  
+    <li class="users">
+    
+      <span *ngIf="kcService.kc.authenticated">{{kcService.kc.tokenParsed.name}} </span>
+      <img style="width: 35px" src="https://i.imgur.com/x3omKbe.png"> &nbsp; &nbsp; 
+      <ul class="profile">
+       
+        <li><a  href=""><img  src="./assets/images/account.png"> Profile</a></li> 
+        <li class="logout warn"><a (click)="onChangePassword()" style="cursor: pointer;"><img  src="./assets/images/updatePass.png"> Change password</a></li>
+        <li class="logout warn"><a (click)="onLogout()" style="cursor: pointer;"> <img src="./assets/images/logout.png"> Logout</a></li> 
+
+      </ul>
+    </li>
+  
+  </ul>
+</header>
+
+<nav role='navigation'>
+ <!--<ul class="main">
+    <li class="dashboard"><a href="admindashboard">Dashboard</a></li>
+    <li class="edit"><a href="#">Edit Website</a></li>
+    <li class="write"><a href="#">Write news</a></li>
+    <li class="comments"><a href="#">Ads</a></li>
+    <li class="users"><a href="#">Manage Users</a></li>
+  </ul>-->
+  <ul class="mainmenu">
+    <!--*ngIf="isChargeClienthele()"-->
+    <li *ngIf="isChargeClienthele()"><a href="">Client<div class='fa fa-caret-down right'></div></a>
+      <ul class="submenu">
+        <li><a routerLink="/client/listClient">  Liste Client</a></li> 
+        <li><a href="">  Demande</a></li> 
+      </ul>
+    </li>
+    <!--*ngIf="isCompteManager()"-->
+    <li *ngIf="isCompteManager()"><a href="">Compte<div class='fa fa-caret-down right'></div></a>
+      <ul class="submenu">
+        <li><a routerLink="/compte/creation-compte"> Ajout Compte</a></li>
+        <li><a routerLink="/compte/compteActive">Liste Compte</a></li>
+        <li><a routerLink="/compte/compteDesactive">Compte désactivé</a></li>
+       
+      </ul>
+    </li>
+<!-- *ngIf="isCaissier()"-->
+    <li *ngIf="isCaissier()"><a  href="">Operation<div class='fa fa-caret-down right'></div></a>
+      <ul class="submenu">
+        <li><a routerLink="/operations/liste">Liste Operation</a></li>
+        <li><a routerLink="/operations/retrait">Retrait</a></li>
+        <li><a routerLink="/operations/versement">Versement</a></li>
+       <li><a routerLink="/operations/virement"> Virement</a></li>
+      </ul>
+    </li>
+    <!--*ngIf="isChargeClienthele()"-->
+    <li *ngIf="isChargeClienthele()" ><a routerLink="/credit">Credit<div class='fa fa-caret-down right'></div></a>
+      <ul class="submenu">
+        <li><a routerLink="/credit/montant-duree">Montant-Duree</a></li>
+       <li><a routerLink="/operations/virement">Mensualite-Montant</a></li>
+      </ul>
+    </li>
+  <!--*ngIf="isAppManager()"-->
+    <li *ngIf="isAppManager()" ><a routerLink="/portefeuille" >Portefeuille<div class='fa fa-caret-down right'></div></a>
+  </ul>
+</nav>
+
+<!--<main role="main">
+  
+  <section class="panel important">
+    <h2>Write Some News</h2>
+    <ul>
+      <li>Information Panel</li>
+    </ul>
+  </section>
+  
+  <section class="panel important">
+    <h2>Write a post</h2>
+      <form action="" method="post">
+        <div class="twothirds">
+          Blog title:<br/>
+          <input type="text" name="title" size="40"/><br/><br/>
+          Content:<br/>    
+          <textarea name="newstext" rows="15" cols="67"></textarea><br/>  
+        </div>
+        <div>
+          <input type="submit" name="submit" value="Save" />
+        </div>
+       
+      </form>
+  </section>
+
+</main>-->
+

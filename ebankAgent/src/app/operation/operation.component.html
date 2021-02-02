@@ -1,0 +1,58 @@
+
+    <div id="body">
+      <app-nemu-bar></app-nemu-bar>
+   
+      <main style="margin-left:18%;margin-top: 6%;">
+         <div class="container-fluid">
+  
+     
+        <input type="search" (keyup)="keyBoardEvent($event)"  placeholder="search ... "  [(ngModel)]="motCle">
+        <table class="table table-striped" >
+          <thead style="color: brown; font-weight: bolder; font-style: italic;">
+            <tr>
+                <th>N°</th>
+                <th>Type</th>
+                <th>Date d'Opération</th>
+                <th>Acteur</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Montant(DH)</th>  
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let o of pageOperation">
+                <td>{{o.numOperation}}</td>
+                <td>{{o.typeOperation}}</td>
+                <td>{{o.dateOperation}}</td>
+                <td *ngIf="o.agent!=null; else elseAgent">
+                    Ag: {{o.agent.id}}</td>
+                <ng-template #elseAgent><td>-</td></ng-template>
+
+
+                <td *ngIf="o.compteSource!=null; else elseTag">
+                    {{o.compteSource.rib}}</td>
+                <ng-template #elseTag><td>-</td></ng-template>
+                <td *ngIf="o.compteDestination!=null; else elseTag">
+                    {{o.compteDestination.rib}}</td>
+
+                <td>{{o.montant | number: '.2'}} MAD</td>
+                <td>
+
+                
+            </tr>
+              
+            
+          </tbody>
+        </table>
+    
+    </div>
+    </main>
+
+
+
+
+
+</div>
+
+
+

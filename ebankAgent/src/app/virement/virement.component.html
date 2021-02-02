@@ -1,0 +1,32 @@
+
+
+        
+<div id="body">
+    <app-nemu-bar></app-nemu-bar>
+ 
+    <main >
+       <div class="container-fluid">
+     <div class="card">
+        <div class="card-header" style="background: brown;color: white;">Virement</div>
+        <div class="card-body">
+           <form class="form" #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+              <label >Rib Source</label>
+              <input class="form-control mb-2" type="text" [(ngModel)]="_compteSource.rib" #sour='ngModel' name="compteSource" placeholder="rib" required/>
+              <small class="text-danger" [class.d-none]="sour.valid || sour.untouched">Ce champs est obligatoire</small><br>
+              <label >Rib Destination</label>
+              <input class="form-control mb-2"  [(ngModel)]="_compteDestination.rib"   #dest='ngModel' name="compteDestination" type="text" placeholder="rib" required/>
+              <small class="text-danger" [class.d-none]="dest.valid || dest.untouched">Ce champs est obligatoire</small><br>
+              <label>Montant</label>
+              <input  class="form-control mb-2"  type="number"  #mont='ngModel' [(ngModel)]="newOperation.montant"  name="montant" placeholder="0.00 DH"required />
+              <div *ngIf="mont.errors && mont.touched">
+               <small class="text-danger" *ngIf="mont.errors.required"> * Ce champs est obligatoire</small>
+               <small class="text-danger" *ngIf="mont.errors.pattern"> * Le montant doit etre superieur de 100</small>
+            </div><br>
+              
+              <input type="submit" [disabled]="!form.valid" class="mt-4 w-100 btn btn-outline-dark" value="Valider"/>
+           </form>
+        </div>
+     </div>
+  </div>
+  </main>
+  </div>

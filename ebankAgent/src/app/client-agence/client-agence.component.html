@@ -1,0 +1,41 @@
+
+  <div id="body">
+    <app-nemu-bar></app-nemu-bar>
+
+    <main style="margin-top: 8%;margin-left: 22%;">
+      <div  class="content">
+        <input type="search" (keyup)="keyBoardEvent($event)" placeholder="search ... " [(ngModel)]="motCle">
+        <table class="table table-striped" >
+          <thead style="color: brown; font-weight: bolder; font-style: italic;">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Date Naissance</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let c of pageClient">
+                <td>{{c.id}}</td>
+                <td>{{c.nom}}</td>
+                <td>{{c.prenom}}</td>
+                <td>{{c.cin}}</td>
+                <td>{{c.username}}</td>
+                <td>{{c.numTel}}</td>
+                <td>{{c.dateNaissance | date:'dd/MM/yyyy'}}</td>
+                <td style="cursor: pointer;">
+                   <a  (click)="onDeleteClient(c)"> <img src="../assets/images/delete.png"   title="delete" class="img-responsive"></a>
+                   &nbsp; <a (click)="onEditClient(c.id)"> <img src="../assets/images/update.png"   title="update" class="img-responsive"></a>
+                 
+    
+                </td>
+                
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>

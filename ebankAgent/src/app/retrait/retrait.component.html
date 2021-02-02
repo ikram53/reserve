@@ -1,0 +1,28 @@
+
+<div id="body">
+    <app-nemu-bar></app-nemu-bar>
+ 
+    <main>
+       <div class="container-fluid">
+     <div class="card">
+        <div class="card-header" style="background: brown;color: white;">Retrait</div>
+        <div class="card-body">
+           <form class="form" #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+              <label >Rib</label>
+              <input class="form-control mb-2"  #ver='ngModel' [(ngModel)]="this?._compte.rib" name="rib" type="text" placeholder="RIB" required/>
+              <small class="text-danger" [class.d-none]="ver.valid || ver.untouched">Ce champs est obligatoire</small>
+   <br>
+              <label>Montant</label>
+              <input  class="form-control mb-2"   #mont='ngModel' [(ngModel)]="newOperation.montant" name="montant" type="number"  pattern="[1-9][0-9]{2,4}" placeholder="0.00 DH" required/>
+              <div *ngIf="mont.errors && mont.touched">
+               <small class="text-danger" *ngIf="mont.errors.required"> * Ce champs est obligatoire</small>
+               <small class="text-danger" *ngIf="mont.errors.pattern"> * Vous pouvez retirer de 100 a 10000 DH</small>
+            </div><br>
+             
+              <input type="submit"  [disabled]="!form.valid" class="mt-4 w-100 btn btn-outline-dark" value="Valider"/>
+           </form>
+        </div>
+     </div>
+  </div>
+  </main>
+  </div>

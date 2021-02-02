@@ -1,0 +1,113 @@
+
+   
+<app-nemu-bar></app-nemu-bar>
+      
+<main style="margin-left: 6.5%;">
+    <div class="container">
+        <main>
+            <ng-template #meetingModal let-modal>
+
+        
+                <div class="modal-header">
+                    <h5 class="modal-title">Rendez vous du jour</h5>
+                  </div>
+                  <div class="modal-body">
+                    <mwl-calendar-day-view [viewDate]="viewDate" [events]="events">
+                    </mwl-calendar-day-view>
+                  </div>
+                 
+            
+            </ng-template>
+            
+            
+            <div class="dashboard-container">
+                <br><br>
+                <div class="card-1">
+                    <div class="card border-danger">
+                        <div class="card-body text-white" style="background: brown;">
+                            <div class="row">
+                              
+                                <div class="col-3">
+                                    <br>
+                                    <i class="fa fa-random fa-5x"></i>
+                                </div>
+                                <div class="col-9 text-right">
+                                    <br>
+                                    <h1></h1>
+                                    <br>
+                                    <h4>  Gestion des documents</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a routerLink="file">
+                            <div class="card-footer bg-light text-secondary">
+                                
+                                <span class="float-left">documents</span>
+                                <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <br>  
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                 
+                </div>
+                <div class="card-2">
+                    <div class="card border-secondary">
+                        <div class="card-body bg-dark text-white">
+                            <div class="row">
+                                <div class="col-3">
+                                    <br>
+                                    <i class="fa fa-user-graduate fa-5x"></i>
+                                </div>
+                                <div class="col-9 text-right">
+                                    <br><br>
+                                   <br>
+                                    <h1>Calender</h1>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <a routerLink="calender">
+                            <div class="card-footer bg-light text-secondary">
+                                
+                                <span class="float-left">Votre rendez vous</span>
+                                <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
+                              <br>
+                            </div>
+                        </a>
+                    </div> 
+                 
+                </div>
+                  
+                
+                
+                <div class="card-3">
+                   
+                    
+                    <div class="circle-menu">
+                        <ul>
+                            <li><a class="push" href="#">Messagerie</a></li>
+                            <li><a class="client" href="#">Client</a></li>
+                            <li><a class="statistic" href="#">Statistic</a></li>
+                           
+                            <li><a class="demande" href="#">Demande</a></li>
+                            <li><a class="rendez-vs" routerLink="/dashboard/meeting" href="#">Rendez vous</a></li>
+                            <li><a class="compte" href="#">Comptes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+   
+</main>
+
+
+
+    
+    
+
+
+

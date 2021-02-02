@@ -1,0 +1,54 @@
+/*input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
+
+form{
+    display: block;
+    margin: 100px auto;
+    padding: 25px 0;
+    width: 60%;
+    box-shadow:0px 5px 10px 0px rgba(0,47,104,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1{
+ 
+    display: inline-block;
+    position: relative;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    font-style: italic;
+    
+   
+  }
+  button:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+  }*/
+
+  .container-fluid {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+ }
+ 
+ .card, .alert {
+    margin: 1rem 0;
+    width: 30em;
+ }
+
+input:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+ 

@@ -1,0 +1,27 @@
+<div id="body">
+    <app-nemu-bar></app-nemu-bar>
+ 
+    <main >
+       <div class="container-fluid">
+     <div class="card">
+        <div class="card-header" style="background: brown;color: white;">Versement</div>
+        <div class="card-body">
+           <form class="form"  #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+              <label >Rib</label>
+              <input class="form-control mb-2" type="text"   [(ngModel)]="this?._compte.rib"   #dest='ngModel' name="rib" placeholder="rib"  required/>
+              <small class="text-danger" [class.d-none]="dest.valid || dest.untouched">Ce champs est obligatoire</small><br>
+              <label>Montant</label>
+              <input  class="form-control mb-2" type="number"  #mont='ngModel' [(ngModel)]="newOperation.montant" name="montant"  pattern="[1-9][0-9]{2,100}" placeholder="0.00 DH"  required/>
+              <div *ngIf="mont.errors && mont.touched">
+               <small class="text-danger" *ngIf="mont.errors.required"> * Ce champs est obligatoire</small>
+               <small class="text-danger" *ngIf="mont.errors.pattern"> * Le montant doit etre superieur de 100</small>
+            </div><br>
+              
+              <input type="submit" [disabled]="!form.valid" class="mt-4 w-100 btn btn-outline-dark" value="Valider" />
+           </form>
+        </div>
+     </div>
+  </div>
+  </main>
+  </div>
+

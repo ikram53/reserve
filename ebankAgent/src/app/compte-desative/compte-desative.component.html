@@ -1,0 +1,39 @@
+
+<div id="body">
+    <app-nemu-bar></app-nemu-bar>
+
+    <main style="margin-top: 8%;margin-left: 22%;">
+      <div  class="content">
+        <input type="search" (keyup)="keyBoardEvent($event)" placeholder="search ... " [(ngModel)]="motCle">
+        <table class="table table-striped" >
+          <thead style="color: brown; font-weight: bolder; font-style: italic;">
+            <tr>
+                <th>Type </th>
+                <th>Num </th>
+                <th>date création</th>
+                <th>Frais d'ouverture</th>
+                <th>Rib</th>
+                <th>Solde</th>
+                <th>Agent</th>
+                <th>Client</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let c of pageCompte">
+                <td>{{c.typeCompte}}</td>
+                <td>{{c.numCompte}}</td>
+                <td>{{c.dateCreation | date:'short'}}</td>
+                <td>{{c.fraisOuverture}}</td>
+                <td>{{c.rib}}</td>
+                <td>{{c.solde}}</td>
+                <td>{{c.agent.id}}</td>
+                <td>{{c.idClient}}</td>
+                <td>
+                  <a  class="icon" (click)="onActiver(c)"><img src="assets/images/check.png" title="active"></a> &nbsp;
+            </tr>
+              
+          </tbody>
+        </table>
+      </div>
+    </main>
+

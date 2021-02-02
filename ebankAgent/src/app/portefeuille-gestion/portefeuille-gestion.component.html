@@ -1,0 +1,61 @@
+<div class="container">
+  <app-nemu-bar></app-nemu-bar>
+    
+  <main style="margin-left: 14%;margin-top: 7%;">
+    <input type="search" (keyup)="keyBoardEvent($event)" placeholder="search by matricule.... " [(ngModel)]="motCle">
+    <br>
+  <!--<div   class="expandable-item"   *ngFor="let porte of portefeuille">
+      <div class="expandable-header">
+       <strong >{{porte.id}}</strong>&nbsp;
+       <span >{{porte.description}}</span>
+        <div class="expandable-icon" (click)="listAgent(modalAffectation,porte)">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <p  style="font-style: italic;">
+       &nbsp; &nbsp;
+        <small> L'agent <strong> {{porte.agent.nom}}  {{porte.agent.prenom}} </strong>  avec id  <strong>{{porte.agent.id}}</strong></small> 
+      </p>
+    </div>-->
+   
+
+    <ng-template #modalAffectation let-close="close">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-style:italic; color: brown;">Affecation Portefeuille</h5>
+      </div>
+      <div class="container">
+          <div *ngFor="let agent of agentAgence">
+   
+            <input  type="radio" class="custom" name="affectationAgent" id="{{agent.id}}" (change)="onItemChange($event.target.value)" value="{{agent.id}}"/>
+            <label for="{{agent.id}}" style="font-weight: 600;"><span style="color: brown;font-weight: bolder;">{{agent.id}}</span> &nbsp; {{agent.nom}} &nbsp;{{agent.prenom}}</label> 
+          </div>
+      </div>
+        <div class="modal-footer">
+     
+          <button  type="button" class="btn btn-outline-dark" (click)="affecteagent()">
+            Save</button>
+     </div>
+    
+    </ng-template>
+
+
+    
+    <div id="content">
+      
+    
+      <ul class="timeline" *ngFor="let porte of portefeuille">
+        <li class="event">
+          <h3>{{porte.description}}</h3>
+          <p> L'agent <strong> {{porte.agent.nom}}  {{porte.agent.prenom}} </strong>  avec id  <strong>{{porte.agent.id}}</strong></p>
+          <div class="expandable-icon" (click)="listAgent(modalAffectation,porte)">
+           <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </li>
+          
+      </ul>
+    </div>
+
+</main>
+</div>
